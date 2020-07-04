@@ -75,15 +75,34 @@ namespace CPU_Scheduling
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-           
-            FCFS fcfs = new FCFS();
-            fcfs.Numpro = Convert.ToInt32(txtNum.Text.Trim());
-            fcfs.Max = Convert.ToInt32(txtMax.Text.Trim());
-            fcfs.Min = Convert.ToInt32(txtMin.Text.Trim());
-            fcfs.Show(); this.Hide();
-            fcfs.populate();
+            if (rdFCFS.Checked == true)
+            {
+                FCFS fcfs = new FCFS();
+                fcfs.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                fcfs.Max = Convert.ToInt32(txtMax.Text.Trim());
+                fcfs.Min = Convert.ToInt32(txtMin.Text.Trim());
+                fcfs.Show(); this.Hide();
+                if (checkRan.Checked == true) fcfs.ran = true;
+                fcfs.populate();
+
+            }
+            if (rdPQ.Checked == true)
+            {
+                PQ pq = new PQ();
+                pq.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                pq.Max = Convert.ToInt32(txtMax.Text.Trim());
+                pq.Min = Convert.ToInt32(txtMin.Text.Trim());
+                pq.Show(); this.Hide();
+                if (checkRan.Checked == true) pq.ran = true;
+                pq.populate();
 
 
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PQ));
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -39,19 +40,26 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbCurrent = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
+            this.lbQueue = new System.Windows.Forms.Label();
+            this.lbClock = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbWait = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.picBusy = new System.Windows.Forms.PictureBox();
             this.picWaiting = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbTurn = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbWaitT = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBusy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWaiting)).BeginInit();
             this.SuspendLayout();
@@ -95,12 +103,13 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(833, 447);
+            this.btnStart.Location = new System.Drawing.Point(908, 447);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 43);
             this.btnStart.TabIndex = 42;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // label15
             // 
@@ -108,7 +117,7 @@
             this.label15.BackColor = System.Drawing.SystemColors.Control;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Teal;
-            this.label15.Location = new System.Drawing.Point(766, 78);
+            this.label15.Location = new System.Drawing.Point(821, 78);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(46, 17);
             this.label15.TabIndex = 41;
@@ -120,7 +129,7 @@
             this.label14.BackColor = System.Drawing.SystemColors.Control;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Teal;
-            this.label14.Location = new System.Drawing.Point(637, 78);
+            this.label14.Location = new System.Drawing.Point(708, 78);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(96, 17);
             this.label14.TabIndex = 40;
@@ -168,60 +177,60 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(374, 100);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(544, 331);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(609, 331);
             this.flowLayoutPanel1.TabIndex = 36;
             // 
-            // label10
+            // lbCurrent
             // 
-            this.label10.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(134, 191);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 26);
-            this.label10.TabIndex = 35;
-            this.label10.Text = "label10";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbCurrent.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbCurrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbCurrent.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCurrent.Location = new System.Drawing.Point(134, 191);
+            this.lbCurrent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbCurrent.Name = "lbCurrent";
+            this.lbCurrent.Size = new System.Drawing.Size(88, 26);
+            this.lbCurrent.TabIndex = 35;
+            this.lbCurrent.Text = "P";
+            this.lbCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lbStatus
             // 
-            this.label9.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(134, 152);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 26);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "label9";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbStatus.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.Location = new System.Drawing.Point(134, 152);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(88, 26);
+            this.lbStatus.TabIndex = 34;
+            this.lbStatus.Text = "Idle";
+            this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // lbQueue
             // 
-            this.label8.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(134, 115);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 26);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "label8";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbQueue.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbQueue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbQueue.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQueue.Location = new System.Drawing.Point(134, 115);
+            this.lbQueue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbQueue.Name = "lbQueue";
+            this.lbQueue.Size = new System.Drawing.Size(88, 26);
+            this.lbQueue.TabIndex = 33;
+            this.lbQueue.Text = "0";
+            this.lbQueue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lbClock
             // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(134, 78);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 23);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "label7";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbClock.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbClock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbClock.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClock.Location = new System.Drawing.Point(134, 78);
+            this.lbClock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClock.Name = "lbClock";
+            this.lbClock.Size = new System.Drawing.Size(88, 23);
+            this.lbClock.TabIndex = 32;
+            this.lbClock.Text = "0";
+            this.lbClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -276,18 +285,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(804, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(869, 100);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
-            // label2
+            // lbWait
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(17, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(533, 33);
-            this.label2.TabIndex = 26;
+            this.lbWait.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.lbWait.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbWait.Location = new System.Drawing.Point(17, 34);
+            this.lbWait.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbWait.Name = "lbWait";
+            this.lbWait.Size = new System.Drawing.Size(533, 33);
+            this.lbWait.TabIndex = 26;
             // 
             // label1
             // 
@@ -319,11 +328,91 @@
             this.picWaiting.TabIndex = 47;
             this.picWaiting.TabStop = false;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.SystemColors.Control;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Teal;
+            this.label16.Location = new System.Drawing.Point(631, 78);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 17);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "Priority";
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestart.Location = new System.Drawing.Point(792, 447);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 43);
+            this.btnRestart.TabIndex = 55;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbTurn
+            // 
+            this.lbTurn.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbTurn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbTurn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTurn.Location = new System.Drawing.Point(223, 403);
+            this.lbTurn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTurn.Name = "lbTurn";
+            this.lbTurn.Size = new System.Drawing.Size(88, 26);
+            this.lbTurn.TabIndex = 59;
+            this.lbTurn.Text = "0";
+            this.lbTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 409);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(180, 17);
+            this.label8.TabIndex = 58;
+            this.label8.Text = "Average Turn Around Time";
+            // 
+            // lbWaitT
+            // 
+            this.lbWaitT.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lbWaitT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbWaitT.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWaitT.Location = new System.Drawing.Point(223, 367);
+            this.lbWaitT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbWaitT.Name = "lbWaitT";
+            this.lbWaitT.Size = new System.Drawing.Size(88, 26);
+            this.lbWaitT.TabIndex = 57;
+            this.lbWaitT.Text = "0";
+            this.lbWaitT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 373);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 17);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Average Waiting Time";
+            // 
             // PQ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 608);
+            this.ClientSize = new System.Drawing.Size(995, 608);
+            this.Controls.Add(this.lbTurn);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbWaitT);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.picWaiting);
             this.Controls.Add(this.picBusy);
             this.Controls.Add(this.label19);
@@ -336,19 +425,20 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbCurrent);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.lbQueue);
+            this.Controls.Add(this.lbClock);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbWait);
             this.Controls.Add(this.label1);
             this.Name = "PQ";
             this.Text = "PQ";
+            this.Load += new System.EventHandler(this.PQ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBusy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWaiting)).EndInit();
             this.ResumeLayout(false);
@@ -368,18 +458,25 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbCurrent;
+        private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Label lbQueue;
+        private System.Windows.Forms.Label lbClock;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbWait;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picBusy;
         private System.Windows.Forms.PictureBox picWaiting;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbTurn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbWaitT;
+        private System.Windows.Forms.Label label2;
     }
 }
