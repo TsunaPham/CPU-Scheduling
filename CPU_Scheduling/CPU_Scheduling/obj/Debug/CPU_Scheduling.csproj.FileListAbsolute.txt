@@ -12,3 +12,4 @@ C:\Users\Admin\Desktop\CPU_Scheduling\CPU_Scheduling\obj\Debug\CPU_Scheduling.FC
 C:\Users\Admin\Desktop\CPU_Scheduling\CPU_Scheduling\obj\Debug\CPU_Scheduling.Process.resources
 C:\Users\Admin\Desktop\CPU_Scheduling\CPU_Scheduling\obj\Debug\CPU_Scheduling.RR.resources
 C:\Users\Admin\Desktop\CPU_Scheduling\CPU_Scheduling\obj\Debug\CPU_Scheduling.PQ.resources
+C:\Users\Admin\Desktop\CPU_Scheduling\CPU_Scheduling\obj\Debug\CPU_Scheduling.ProcessPQ.resources

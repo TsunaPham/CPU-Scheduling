@@ -20,28 +20,20 @@ namespace CPU_Scheduling
         public FCFS()
         {
             InitializeComponent();
-            populate();
+            
             picBusy.Hide();
             picWaiting.Show();
+           
         }
-        private int _num;
-        private int _max;
-        private int _min;
-        public int Numpro
-        {
-            get { return _num; }
-            set { _num = value; }
-        }
-        public int Max
-        {
-            get { return _max; }
-            set { _max = value; }
-        }
-        public int Min
-        {
-            get { return _min; }
-            set { _min = value; }
-        }
+       
+       
+        public bool ran = false;
+        public int Numpro;
+
+        public int Max;
+
+        public int Min;
+       
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -74,17 +66,25 @@ namespace CPU_Scheduling
         Process[] prolist;
         Process[] dosched;
         public void populate()
-        {   prolist = new Process[_num];           
-            double mean = (double)(_max + _min)/(double) 2;
-            double stdDev = (double)(_max - _min) / (double)6;
+        {   prolist = new Process[Numpro];           
+            double mean = (double)(Max + Min)/(double) 2;
+            double stdDev = (double)(Max - Min) / (double)6;
             
-            for (int i = 0; i < _num; i++)
+            for (int i = 0; i < Numpro; i++)
 
             {   
                 prolist[i] = new Process();
                 prolist[i].Num = i;
-                prolist[i].Arrival = Normal(mean, stdDev, _max, _min);
-                prolist[i].Burst = Normal(mean, stdDev, _max, _min);
+                if (ran == true)
+                {
+                    prolist[i].Arrival = Normal(mean, stdDev, Max, Min);
+                    prolist[i].Burst = Normal(mean, stdDev, Max, Min);
+                }
+                else
+                {
+                    prolist[i].Arrival = 0;
+                    prolist[i].Burst = 1;
+                }
                 flowLayoutPanel1.Controls.Add(prolist[i]);
             }
             
@@ -93,7 +93,7 @@ namespace CPU_Scheduling
         int totalturnAround=0;
         public void Sched()
         {
-            dosched = new Process[_num];
+            dosched = new Process[Numpro];
             dosched = prolist;
             dosched.Count();
             for (int k = 0; k < Numpro; k++)
@@ -144,20 +144,11 @@ namespace CPU_Scheduling
                         prolist[k].WaitT = dosched[i].WaitT;
                     }
             }
-            string la = "";
-            for (int i=0; i < Numpro;i++)
-                {
-                la += prolist[i].End.ToString() + " ";
-
-            }
-            MessageBox.Show(la);
+            
         }
-        public void addrow()
-        {
-            tableLayoutPanel1.ColumnCount=3;
-        }
+        
         private void LoadBar(Process p1)
-        {
+        {   
             Process k = new Process();
             k = p1;
             Label k1 = new Label();
@@ -185,7 +176,10 @@ namespace CPU_Scheduling
         bool stop;
         private void btnStart_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Enabled = false;
+            timer1.Tick -= timer1_Tick;
             Simulate();
+           
 
         }
         private void Simulate()
@@ -202,24 +196,15 @@ namespace CPU_Scheduling
            
             timer1.Start();
         }
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        //public void timer_Elapsed(object sender, ElapsedEventArgs e)
-        //{
-        //    // do whatever it is that you need to do on a timer
-
-        //    counttime++;
-        //    lbClock.Text = counttime.ToString();
-        //}
+        
         int wait = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             
-            
-                string waitpro = "";
+            string waitpro = "";
 
                 lbClock.Text = (counttime).ToString();
                 for (int i = 0; i < Numpro; i++)
@@ -240,11 +225,11 @@ namespace CPU_Scheduling
                     if ((counttime > dosched[k].Arrival) && (counttime < dosched[k].Start))
                     { waitpro += "P" + dosched[k].Num.ToString() + "|"; numqueue++; }
                 lbWait.Text = waitpro; lbQueue.Text = numqueue.ToString();
-                if (counttime < wait) { lbStatus.Text = "Busy"; picBusy.Show(); picWaiting.Hide(); }
-                else { lbStatus.Text = "Wait"; picBusy.Hide(); picWaiting.Show(); }
+                if (counttime < wait ) { lbStatus.Text = "Busy"; picBusy.Show(); picWaiting.Hide(); }
+                else if(counttime<endtime) { lbStatus.Text = "Wait"; picBusy.Hide(); picWaiting.Show(); }
 
 
-                if (counttime == endtime) { timer1.Stop(); lbStatus.Text = "Idle"; picBusy.Hide(); picWaiting.Show();
+                if (counttime == endtime+1) { timer1.Stop(); lbStatus.Text = "Idle"; picBusy.Hide(); picWaiting.Show();lbCurrent.Text = "non";
                     lbWaitT.Text = Math.Round((double)totalwait / (double)Numpro, 2).ToString();
                     lbTurn.Text = Math.Round((double)totalturnAround / (double)Numpro, 2).ToString();
                 }
@@ -255,11 +240,16 @@ namespace CPU_Scheduling
         
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            counttime = endtime;
+            flowLayoutPanel1.Enabled = true;
             timer1.Tick -= timer1_Tick;
-            
-            
-            
+            picBusy.Hide();picWaiting.Show();
+            lbClock.Text = "0";
+            lbQueue.Text = "0";
+            lbStatus.Text = "Idle";
+            lbCurrent.Text = "P";
+            lbTurn.Text = "0";
+            lbWaitT.Text = "0";
+
             flowLayoutPanel1.Controls.Clear();
             for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; --i)
                 tableLayoutPanel1.Controls[i].Dispose();
@@ -269,18 +259,29 @@ namespace CPU_Scheduling
             tableLayoutPanel1.ColumnCount = 1;
 
           
-            for (int i = 0; i < _num; i++)
+            for (int i = 0; i < Numpro; i++)
 
             {
                 prolist[i].stop();
                 
                 flowLayoutPanel1.Controls.Add(prolist[i]);
             }
-            Simulate();
+            
             //flowLayoutPanel1.Controls.Clear();
 
 
 
+        }
+
+        private void FCFS_Load(object sender, EventArgs e)
+        {
+            this.FormClosed += new FormClosedEventHandler(formclose);
+
+        }
+        private void formclose(object sender, EventArgs e)
+        {
+            Form1 k = new Form1();
+            k.Show();
         }
     }
 }
