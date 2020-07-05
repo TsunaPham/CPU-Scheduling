@@ -68,22 +68,48 @@ namespace CPU_Scheduling
                int k = Normal(mean,stdDev,11,0);
            
             MessageBox.Show(k.ToString());
-            
-            
-
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToInt32(txtNum.Text.Trim()).ToString());
-            FCFS fcfs = new FCFS();
-            fcfs.Numpro = Convert.ToInt32(txtNum.Text.Trim());
-            fcfs.Max = Convert.ToInt32(txtMax.Text.Trim());
-            fcfs.Min = Convert.ToInt32(txtMin.Text.Trim());
-            fcfs.Show(); this.Hide();
-            fcfs.populate();
+            if (rdFCFS.Checked == true)
+            {
+                FCFS fcfs = new FCFS();
+                fcfs.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                fcfs.Max = Convert.ToInt32(txtMax.Text.Trim());
+                fcfs.Min = Convert.ToInt32(txtMin.Text.Trim());
+                fcfs.Show(); this.Hide();
+                if (checkRan.Checked == true) fcfs.ran = true;
+                fcfs.populate();
 
+            }
 
+            if (rdPQ.Checked == true)
+            {
+                PQ pq = new PQ();
+                pq.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                pq.Max = Convert.ToInt32(txtMax.Text.Trim());
+                pq.Min = Convert.ToInt32(txtMin.Text.Trim());
+                pq.Show(); this.Hide();
+                if (checkRan.Checked == true) pq.ran = true;
+                pq.populate();
+            }
+
+            if (rdSJF.Checked == true)
+            {
+                SJF sjf = new SJF();
+                sjf.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                sjf.Max = Convert.ToInt32(txtMax.Text.Trim());
+                sjf.Min = Convert.ToInt32(txtMin.Text.Trim());
+                sjf.Show(); this.Hide();
+                if (checkRan.Checked == true) sjf.ran = true;
+                sjf.populate();
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
