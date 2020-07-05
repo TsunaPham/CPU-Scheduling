@@ -321,7 +321,7 @@
             // picWaiting
             // 
             this.picWaiting.Image = ((System.Drawing.Image)(resources.GetObject("picWaiting.Image")));
-            this.picWaiting.Location = new System.Drawing.Point(252, 84);
+            this.picWaiting.Location = new System.Drawing.Point(252, 83);
             this.picWaiting.Name = "picWaiting";
             this.picWaiting.Size = new System.Drawing.Size(100, 94);
             this.picWaiting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

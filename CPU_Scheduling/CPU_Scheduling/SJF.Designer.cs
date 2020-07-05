@@ -1,6 +1,6 @@
 ﻿namespace CPU_Scheduling
 {
-    partial class FCFS
+    partial class SJF
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCFS));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SJF));
             this.label1 = new System.Windows.Forms.Label();
             this.lbWait = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -119,7 +119,6 @@
             this.label3.Size = new System.Drawing.Size(109, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Simulation Clock";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -235,7 +234,6 @@
             this.label12.Size = new System.Drawing.Size(87, 17);
             this.label12.TabIndex = 15;
             this.label12.Text = "Arrival Time";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -332,6 +330,7 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // picWaiting
             // 
@@ -349,7 +348,7 @@
             this.picBusy.Location = new System.Drawing.Point(246, 100);
             this.picBusy.Name = "picBusy";
             this.picBusy.Size = new System.Drawing.Size(100, 94);
-            this.picBusy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBusy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBusy.TabIndex = 48;
             this.picBusy.TabStop = false;
             // 
@@ -410,7 +409,7 @@
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
-            // FCFS
+            // SJF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -447,9 +446,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.Name = "FCFS";
-            this.Text = "FCFS";
-            this.Load += new System.EventHandler(this.FCFS_Load);
+            this.Name = "SJF";
+            this.Text = "SJF";
+            this.Load += new System.EventHandler(this.SJF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picWaiting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBusy)).EndInit();
             this.ResumeLayout(false);

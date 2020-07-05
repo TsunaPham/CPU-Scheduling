@@ -66,13 +66,13 @@
             this.rdPQ.Name = "rdPQ";
             this.rdPQ.Size = new System.Drawing.Size(120, 21);
             this.rdPQ.TabIndex = 3;
-            this.rdPQ.TabStop = true;
             this.rdPQ.Text = "Priority Queue";
             this.rdPQ.UseVisualStyleBackColor = true;
             // 
             // rdSJF
             // 
             this.rdSJF.AutoSize = true;
+            this.rdSJF.Checked = true;
             this.rdSJF.Location = new System.Drawing.Point(20, 114);
             this.rdSJF.Name = "rdSJF";
             this.rdSJF.Size = new System.Drawing.Size(140, 21);
@@ -88,7 +88,6 @@
             this.rdRR.Name = "rdRR";
             this.rdRR.Size = new System.Drawing.Size(112, 21);
             this.rdRR.TabIndex = 1;
-            this.rdRR.TabStop = true;
             this.rdRR.Text = "Round Robin";
             this.rdRR.UseVisualStyleBackColor = true;
             // 
@@ -99,7 +98,6 @@
             this.rdFCFS.Name = "rdFCFS";
             this.rdFCFS.Size = new System.Drawing.Size(216, 21);
             this.rdFCFS.TabIndex = 0;
-            this.rdFCFS.TabStop = true;
             this.rdFCFS.Text = "First Come First Serve (FCFS)";
             this.rdFCFS.UseVisualStyleBackColor = true;
             // 
@@ -176,6 +174,8 @@
             // checkRan
             // 
             this.checkRan.AutoSize = true;
+            this.checkRan.Checked = true;
+            this.checkRan.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkRan.Location = new System.Drawing.Point(16, 216);
             this.checkRan.Name = "checkRan";
             this.checkRan.Size = new System.Drawing.Size(395, 21);

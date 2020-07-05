@@ -110,7 +110,7 @@
         private System.Windows.Forms.TextBox txtArrival;
         private System.Windows.Forms.TextBox txtBurst;
         private System.Windows.Forms.TextBox txtWait;
-        private System.Windows.Forms.ProgressBar proStatus;
+        public System.Windows.Forms.ProgressBar proStatus;
         private System.Windows.Forms.Timer timer1;
     }
 }

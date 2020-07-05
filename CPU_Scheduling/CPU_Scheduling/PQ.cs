@@ -85,11 +85,7 @@ namespace CPU_Scheduling
         
         public void Sched()
         {
-            
-            
-            
-            
-            
+          
             int total_Turnaround = 0;
             int total_WaitT = 0;
             int total_Response = 0;

@@ -179,8 +179,6 @@ namespace CPU_Scheduling
             flowLayoutPanel1.Enabled = false;
             timer1.Tick -= timer1_Tick;
             Simulate();
-           
-
         }
         private void Simulate()
         {
