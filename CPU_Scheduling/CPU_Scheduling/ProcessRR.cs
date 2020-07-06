@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace CPU_Scheduling
 {
-    public partial class ProcessPQ : UserControl
+    public partial class ProcessRR : UserControl
     {
-        public ProcessPQ()
+        public ProcessRR()
         {
             InitializeComponent();
-
         }
         private int _maximum;
         private int _num;
@@ -30,11 +29,7 @@ namespace CPU_Scheduling
             get { return Convert.ToInt32(txtBurst.Text.Trim()); }
             set { txtBurst.Text = value.ToString(); }
         }
-        public int Prior
-        {
-            get { return Convert.ToInt32(txtPrior.Text.Trim()); }
-            set { txtPrior.Text = value.ToString(); }
-        }
+        
         public int Num
         {
             get { return _num; }
@@ -61,12 +56,12 @@ namespace CPU_Scheduling
         }
         public int Turnaround = 0;
         public int Response = 0;
-        
+
         Timer timer1 = new Timer();
-        
+
         //public void timer1_Tick(int load)
         //{
-          
+
 
         //    T.Tick -= Loadpro;
         //    proStatus.Maximum = Burst;
@@ -78,9 +73,9 @@ namespace CPU_Scheduling
         public void stop()
         {
             timer1.Stop();
+            progress = 0;
             proStatus.Value = 0;
             setWait(0);
-            progress = 0;
         }
         int progress = 0;
         private void timer1_Tick(object sender, EventArgs e)
@@ -92,7 +87,7 @@ namespace CPU_Scheduling
                 timer1.Enabled = false;
                 timer1.Stop();
             }
-            else  proStatus.Value = progress;
+            else proStatus.Value = progress;
 
         }
 
@@ -103,13 +98,12 @@ namespace CPU_Scheduling
                 e.Handled = true;
             }
         }
-       
         public void proStart()
         {
-            
-            timer1.Tick -= timer1_Tick;
-            proStatus.Maximum = Burst;
 
+            timer1.Tick -= timer1_Tick;
+            
+            proStatus.Maximum = Burst;
             timer1.Tick += timer1_Tick;
             timer1.Interval = 1000;
             timer1.Start();
@@ -119,10 +113,8 @@ namespace CPU_Scheduling
         public void proStop()
         {
             timer1.Stop();
-            
+
 
         }
-
-       
     }
 }

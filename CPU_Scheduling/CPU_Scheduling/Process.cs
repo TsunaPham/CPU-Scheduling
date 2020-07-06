@@ -61,6 +61,8 @@ namespace CPU_Scheduling
         Timer T = new Timer();
         public void loadprogress()
         {
+
+
             T.Tick -= Loadpro;
             proStatus.Maximum = Burst;
 

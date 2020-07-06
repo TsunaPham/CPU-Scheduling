@@ -78,6 +78,7 @@
             this.btnRestart.TabIndex = 82;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // lbTurn
             // 
@@ -190,6 +191,7 @@
             this.btnStart.TabIndex = 72;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // label15
             // 
@@ -404,6 +406,9 @@
             this.txtQuantum.Name = "txtQuantum";
             this.txtQuantum.Size = new System.Drawing.Size(88, 22);
             this.txtQuantum.TabIndex = 84;
+            this.txtQuantum.Text = "1";
+            this.txtQuantum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQuantum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantum_KeyPress);
             // 
             // RR
             // 
@@ -442,6 +447,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RR";
             this.Text = "RR";
+            this.Load += new System.EventHandler(this.RR_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picWaiting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBusy)).EndInit();
             this.ResumeLayout(false);
