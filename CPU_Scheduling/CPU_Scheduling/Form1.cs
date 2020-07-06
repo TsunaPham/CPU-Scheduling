@@ -68,6 +68,9 @@ namespace CPU_Scheduling
                int k = Normal(mean,stdDev,11,0);
            
             MessageBox.Show(k.ToString());
+            
+            
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -83,7 +86,6 @@ namespace CPU_Scheduling
                 fcfs.populate();
 
             }
-
             if (rdPQ.Checked == true)
             {
                 PQ pq = new PQ();
@@ -93,17 +95,20 @@ namespace CPU_Scheduling
                 pq.Show(); this.Hide();
                 if (checkRan.Checked == true) pq.ran = true;
                 pq.populate();
-            }
 
-            if (rdSJF.Checked == true)
+
+            }
+            if (rdRR.Checked == true)
             {
-                SJF sjf = new SJF();
-                sjf.Numpro = Convert.ToInt32(txtNum.Text.Trim());
-                sjf.Max = Convert.ToInt32(txtMax.Text.Trim());
-                sjf.Min = Convert.ToInt32(txtMin.Text.Trim());
-                sjf.Show(); this.Hide();
-                if (checkRan.Checked == true) sjf.ran = true;
-                sjf.populate();
+                RR rr = new RR();
+                rr.Numpro = Convert.ToInt32(txtNum.Text.Trim());
+                rr.Max = Convert.ToInt32(txtMax.Text.Trim());
+                rr.Min = Convert.ToInt32(txtMin.Text.Trim());
+                rr.Show(); this.Hide();
+                if (checkRan.Checked == true) rr.ran = true;
+                rr.populate();
+
+
             }
         }
 

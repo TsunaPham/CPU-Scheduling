@@ -144,7 +144,13 @@ namespace CPU_Scheduling
                         prolist[k].WaitT = dosched[i].WaitT;
                     }
             }
-            
+            string lo = "";
+            for (int i = 0; i < Numpro; i++)
+            {
+                lo += prolist[i].End.ToString() + "-" + prolist[i].Num + " ";
+            }
+            MessageBox.Show(lo);
+
         }
         
         private void LoadBar(Process p1)
@@ -179,6 +185,8 @@ namespace CPU_Scheduling
             flowLayoutPanel1.Enabled = false;
             timer1.Tick -= timer1_Tick;
             Simulate();
+           
+
         }
         private void Simulate()
         {

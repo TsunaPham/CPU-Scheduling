@@ -54,7 +54,7 @@ namespace CPU_Scheduling
        
         public void populate()
         {
-            listbar = new LoadBarPQ[Numpro];
+            listbar = new LoadBar2[Numpro];
             prolist = new ProcessPQ[Numpro];
             double mean = (double)(Max + Min) / (double)2;
             double stdDev = (double)(Max - Min) / (double)6;
@@ -85,7 +85,6 @@ namespace CPU_Scheduling
         
         public void Sched()
         {
-          
             int total_Turnaround = 0;
             int total_WaitT = 0;
             int total_Response = 0;
@@ -177,13 +176,14 @@ namespace CPU_Scheduling
             Simulate();
 
         }
-        LoadBarPQ[] listbar;
+        LoadBar2[] listbar;
         int[] burst_remain;
         private void prostart(ProcessPQ p1)
         {
             ProcessPQ k = new ProcessPQ();
             k = p1;
-            listbar[p1.Num] = new LoadBarPQ();
+           
+            listbar[p1.Num] = new LoadBar2();
             listbar[p1.Num].Max = k.Burst;
             listbar[p1.Num].setMax();
             Label k1 = new Label();
@@ -198,7 +198,8 @@ namespace CPU_Scheduling
             listbar[p1.Num].proStart();
         }
         private void prostop(ProcessPQ p1)
-        {  
+        {
+            
             p1.proStop();
             listbar[p1.Num].proStop();
         }
@@ -247,6 +248,7 @@ namespace CPU_Scheduling
         int endtime = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (currentpro!=-1 && burst_remain[currentpro] == 0) prolist[currentpro].setWait(prolist[currentpro].WaitT);
             lbClock.Text = counttime.ToString();
             if(determine==1)
             {
@@ -267,12 +269,12 @@ namespace CPU_Scheduling
             }
             if (currentpro > -1)
             {
-                if (burst_remain[currentpro]-1 == 0) prolist[currentpro].setWait(prolist[currentpro].WaitT);
+                
                 string waitqueue = "";
                 int numqueue = 0;
                 for (int i=0;i<Numpro;i++)
                 {
-                    if(burst_remain[i]>0 && i!=currentpro)
+                    if(burst_remain[i]>0 && prolist[i].Start<counttime)
                     {
                         waitqueue += "P"+prolist[i].Num.ToString()+"|";numqueue++;
                     }
@@ -295,7 +297,7 @@ namespace CPU_Scheduling
                         }
                         
                     }
-                    if (t == 0 &&counttime<endtime) { picWaiting.Show(); picBusy.Hide(); lbStatus.Text = "Waiting"; }
+                    if (t == 0 && counttime<=endtime) { picWaiting.Show(); picBusy.Hide(); lbStatus.Text = "Waiting"; }
                     //int min = lastprocess[0];
                     //for(int i=0;i<num;i++)
                     //{
