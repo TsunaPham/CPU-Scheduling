@@ -40,7 +40,7 @@
             this.txtNum = new System.Windows.Forms.TextBox();
             this.txtMin = new System.Windows.Forms.TextBox();
             this.txtMax = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkRan = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -173,15 +173,15 @@
             this.txtMax.Text = "10";
             this.txtMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMax_KeyPress);
             // 
-            // checkBox1
+            // checkRan
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(16, 216);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(395, 21);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Generate Arrival Time , Burst Time,  and Priority randomly";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkRan.AutoSize = true;
+            this.checkRan.Location = new System.Drawing.Point(16, 216);
+            this.checkRan.Name = "checkRan";
+            this.checkRan.Size = new System.Drawing.Size(395, 21);
+            this.checkRan.TabIndex = 8;
+            this.checkRan.Text = "Generate Arrival Time , Burst Time,  and Priority randomly";
+            this.checkRan.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -210,7 +210,7 @@
             this.ClientSize = new System.Drawing.Size(460, 526);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkRan);
             this.Controls.Add(this.txtMax);
             this.Controls.Add(this.txtMin);
             this.Controls.Add(this.txtNum);
@@ -221,6 +221,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Input reuired data for scheduling";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -242,7 +243,7 @@
         private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.TextBox txtMin;
         private System.Windows.Forms.TextBox txtMax;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkRan;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnOK;
     }

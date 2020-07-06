@@ -49,33 +49,37 @@
             // txtArrival
             // 
             this.txtArrival.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtArrival.Location = new System.Drawing.Point(105, 11);
+            this.txtArrival.Location = new System.Drawing.Point(80, 10);
             this.txtArrival.Name = "txtArrival";
             this.txtArrival.Size = new System.Drawing.Size(55, 24);
             this.txtArrival.TabIndex = 1;
+            this.txtArrival.Text = "0";
             this.txtArrival.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBurst
             // 
             this.txtBurst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBurst.Location = new System.Drawing.Point(230, 12);
+            this.txtBurst.Location = new System.Drawing.Point(171, 10);
             this.txtBurst.Name = "txtBurst";
             this.txtBurst.Size = new System.Drawing.Size(55, 24);
             this.txtBurst.TabIndex = 2;
+            this.txtBurst.Text = "0";
             this.txtBurst.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBurst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBurst_KeyPress);
             // 
             // txtWait
             // 
             this.txtWait.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWait.Location = new System.Drawing.Point(353, 12);
+            this.txtWait.Location = new System.Drawing.Point(272, 10);
             this.txtWait.Name = "txtWait";
             this.txtWait.Size = new System.Drawing.Size(55, 24);
             this.txtWait.TabIndex = 3;
+            this.txtWait.Text = "0";
             this.txtWait.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // proStatus
             // 
-            this.proStatus.Location = new System.Drawing.Point(515, 11);
+            this.proStatus.Location = new System.Drawing.Point(394, 12);
             this.proStatus.Name = "proStatus";
             this.proStatus.Size = new System.Drawing.Size(163, 23);
             this.proStatus.TabIndex = 4;
@@ -83,19 +87,18 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
-            //this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Process
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.proStatus);
             this.Controls.Add(this.txtWait);
             this.Controls.Add(this.txtBurst);
             this.Controls.Add(this.txtArrival);
             this.Controls.Add(this.txtNum);
             this.Name = "Process";
-            this.Size = new System.Drawing.Size(713, 39);
+            this.Size = new System.Drawing.Size(576, 39);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,13 +11,15 @@ namespace CPU_Scheduling
     {
         public ProgressBar b1 = new ProgressBar();
         public int Max { set; get; }
+        Timer T = new Timer();
         public void load()
         {
-            Timer T = new Timer();
-            T.Interval = 1000;
+           
+            T.Tick -= Loadpro;
             b1.Maximum = Max;
             b1.Width = 25*Max;
-            T.Tick += new EventHandler(Loadpro);
+            T.Tick += Loadpro;
+            T.Interval = 1000;
             T.Start();
         }
         private void Loadpro(object sender, EventArgs e)

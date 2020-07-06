@@ -59,6 +59,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadBar.cs" />
+    <Compile Include="LoadBar2.cs" />
     <Compile Include="PQ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,18 @@
     </Compile>
     <Compile Include="Process.Designer.cs">
       <DependentUpon>Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessPQ.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProcessPQ.Designer.cs">
+      <DependentUpon>ProcessPQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessRR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProcessRR.Designer.cs">
+      <DependentUpon>ProcessRR.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +104,12 @@
     <EmbeddedResource Include="Process.resx">
       <DependentUpon>Process.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProcessPQ.resx">
+      <DependentUpon>ProcessPQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessRR.resx">
+      <DependentUpon>ProcessRR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -103,6 +122,9 @@
     <EmbeddedResource Include="RR.resx">
       <DependentUpon>RR.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
